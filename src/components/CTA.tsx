@@ -1,10 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-
-function scrollToSection(id: string) {
-  const el = document.getElementById(id);
-  el?.scrollIntoView({ behavior: "smooth" });
-}
+import Link from "next/link";
 
 export default function CTA() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -85,10 +81,8 @@ export default function CTA() {
           className="scene-enter scene-enter-d3"
           style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}
         >
-          <a
-            href="https://wa.me/923019172774"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             style={{
               background: "var(--orange)", color: "var(--white)",
               fontFamily: "var(--nu)", fontWeight: 700, fontSize: 16,
@@ -101,11 +95,10 @@ export default function CTA() {
             onMouseLeave={(e) => { e.currentTarget.style.transform = ""; }}
           >
             Start a Project
-          </a>
+          </Link>
 
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); scrollToSection("s-products"); }}
+          <Link
+            href="/products"
             style={{
               background: "transparent", color: "var(--white)",
               fontFamily: "var(--nu)", fontWeight: 600, fontSize: 16,
@@ -124,7 +117,7 @@ export default function CTA() {
             }}
           >
             Explore Products
-          </a>
+          </Link>
         </div>
       </div>
     </section>

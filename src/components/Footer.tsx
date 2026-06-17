@@ -1,10 +1,7 @@
 "use client";
-import { SOCIAL_LINKS, PRODUCTS } from "@/lib/constants";
-
-function scrollToSection(id: string) {
-  const el = document.getElementById(id);
-  el?.scrollIntoView({ behavior: "smooth" });
-}
+import Link from "next/link";
+import { PRODUCTS } from "@/lib/products";
+import { COMPANY } from "@/lib/company";
 
 export default function Footer() {
   return (
@@ -18,7 +15,7 @@ export default function Footer() {
         display: "block",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 56, alignItems: "flex-start", flexWrap: "wrap", gap: 32 }}>
+      <div className="footer-top" style={{ display: "flex", justifyContent: "space-between", marginBottom: 56, alignItems: "flex-start", flexWrap: "wrap", gap: 32 }}>
         {/* Brand */}
         <div>
           <div style={{
@@ -33,61 +30,68 @@ export default function Footer() {
         </div>
 
         {/* Columns */}
-        <div style={{ display: "flex", gap: 64, flexWrap: "wrap" }}>
+        <div className="footer-cols" style={{ display: "flex", gap: 64, flexWrap: "wrap" }}>
           <FooterCol title="Products">
             {PRODUCTS.map((p) => (
-              <li key={p.id}>
-                <a
-                  href={p.href}
-                  target={p.href === "#" ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  style={linkStyle}
+              <li key={p.slug}>
+                <Link href={`/products/${p.slug}`} style={linkStyle}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
-                >
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
                   {p.name}
-                </a>
+                </Link>
               </li>
             ))}
           </FooterCol>
 
           <FooterCol title="Company">
             {[
-              { label: "About",    id: "s-about" },
-              { label: "Services", id: "s-services" },
-              { label: "Contact",  id: "s-cta" },
+              { label: "About", href: "/about" },
+              { label: "Services", href: "/#services" },
+              { label: "Contact", href: "/contact" },
             ].map((item) => (
-              <li key={item.id}>
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }}
-                  style={linkStyle}
+              <li key={item.label}>
+                <Link href={item.href} style={linkStyle}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
-                >
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
                   {item.label}
-                </a>
+                </Link>
+              </li>
+            ))}
+          </FooterCol>
+
+          <FooterCol title="Legal">
+            {[
+              { label: "Privacy Policy", href: "/legal/privacy" },
+              { label: "Refund Policy", href: "/legal/refund" },
+              { label: "Terms & Conditions", href: "/legal/terms" },
+            ].map((item) => (
+              <li key={item.label}>
+                <Link href={item.href} style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </FooterCol>
 
           <FooterCol title="Connect">
             <li>
-              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" style={linkStyle}
+              <a href={COMPANY.socials.linkedin} target="_blank" rel="noopener noreferrer" style={linkStyle}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" style={linkStyle}
+              <a href={COMPANY.socials.whatsapp} target="_blank" rel="noopener noreferrer" style={linkStyle}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
                 WhatsApp
               </a>
             </li>
             <li>
-              <a href={`mailto:${SOCIAL_LINKS.email}`} style={linkStyle}
+              <a href={`mailto:${COMPANY.email}`} style={linkStyle}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>
                 Email
@@ -99,7 +103,7 @@ export default function Footer() {
 
       <div style={{ borderTop: "1px solid var(--border)", paddingTop: 28, textAlign: "center" }}>
         <p style={{ color: "rgba(255,255,255,0.25)", fontSize: 13, fontWeight: 500 }}>
-          © 2026 Xclator. Built in Pakistan.
+          © 2026 Xclator AI LLC. All rights reserved.
         </p>
       </div>
     </footer>

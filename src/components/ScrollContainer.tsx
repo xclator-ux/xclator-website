@@ -5,6 +5,18 @@ export default function ScrollContainer({ children }: { children: React.ReactNod
   const containerRef = useRef<HTMLDivElement>(null);
 
   /* ── Cinematic section transitions ── */
+  /* ── Anchor scroll when arriving from another route (e.g. /#services) ── */
+  useEffect(() => {
+    const raw = window.location.hash.replace("#", "");
+    if (!raw) return;
+    const targetId = raw === "services" ? "s-services" : raw;
+    // Wait for layout/snap container to settle before scrolling.
+    const t = setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+    }, 120);
+    return () => clearTimeout(t);
+  }, []);
+
   useEffect(() => {
     const sc = document.getElementById("scroll-container");
     if (!sc) return;

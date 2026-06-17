@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 export default function About() {
@@ -58,25 +59,34 @@ export default function About() {
               lineHeight: 1.2, marginBottom: 28,
             }}
           >
-            One Founder.<br />Multiple Products.<br />Zero Excuses.
+            Lean Team.<br />Real Products.<br />Shipped Fast.
           </h2>
 
           <p className="scene-enter scene-enter-d2" style={{
             color: "var(--muted)", fontSize: 15, lineHeight: 1.8,
             fontWeight: 500, marginBottom: 18,
           }}>
-            Xclator is built by Abdul Moiz — a solo founder from Pakistan who believes in shipping over
-            talking. Every product in our lineup was conceived, designed, and launched by one person
-            with AI as the co-pilot.
+            Xclator AI LLC is a US-registered AI product studio. What started as an agency over two
+            years ago grew into a product company, formalized in 2026 — led by founder Abdul Moiz and a
+            senior six-person team.
           </p>
 
           <p className="scene-enter scene-enter-d2" style={{
             color: "var(--muted)", fontSize: 15, lineHeight: 1.8,
-            fontWeight: 500, marginBottom: 0,
+            fontWeight: 500, marginBottom: 24,
           }}>
-            We&apos;re not a 50-person agency. We&apos;re a lean product studio that moves faster than
-            teams 10x our size. That&apos;s our edge.
+            Small team, big output. We ship our own SaaS products and build custom AI systems for
+            clients — moving faster than groups many times our size. That&apos;s the edge.
           </p>
+
+          <div className="scene-enter scene-enter-d2">
+            <Link href="/about" style={{
+              fontFamily: "var(--nu)", fontSize: 14, fontWeight: 700,
+              color: "var(--orange)", textDecoration: "none",
+            }}>
+              Read our story →
+            </Link>
+          </div>
 
           <div className="scene-enter scene-enter-d3" style={{
             display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap",

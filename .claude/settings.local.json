@@ -8,7 +8,10 @@
       "Bash(npm run *)",
       "Bash(start npm *)",
       "Bash(npx next *)",
-      "Bash(curl -s http://localhost:3001)"
+      "Bash(curl -s http://localhost:3001)",
+      "PowerShell(Get-ChildItem -Recurse -File src | Where-Object { $_.Extension -in '.ts','.tsx','.css' } | Select-Object -ExpandProperty FullName)",
+      "PowerShell(npm install *)",
+      "PowerShell(npm run *)"
     ]
   }
 }

@@ -1,23 +1,43 @@
 "use client";
 import { useEffect, useState } from "react";
-import { NAV_ITEMS } from "@/lib/constants";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-function scrollToSection(id: string) {
-  const el = document.getElementById(id);
-  el?.scrollIntoView({ behavior: "smooth" });
+function scrollToServices() {
+  document.getElementById("s-services")?.scrollIntoView({ behavior: "smooth" });
 }
 
-export default function Navbar() {
-  const [glass, setGlass] = useState(false);
+export default function Navbar({ solid = false }: { solid?: boolean }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [glass, setGlass] = useState(solid);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (solid) {
+      setGlass(true);
+      return;
+    }
     const sc = document.getElementById("scroll-container");
     if (!sc) return;
     const onScroll = () => setGlass(sc.scrollTop > 40);
     sc.addEventListener("scroll", onScroll, { passive: true });
     return () => sc.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [solid]);
+
+  // Services: scroll on home, navigate-then-anchor elsewhere.
+  const servicesProps = isHome
+    ? { href: "/#services", onClick: (e: React.MouseEvent) => { e.preventDefault(); scrollToServices(); } }
+    : { href: "/#services" };
+
+  const links = (onNavigate?: () => void) => (
+    <>
+      <NavLink href="/products" onNavigate={onNavigate}>Products</NavLink>
+      <NavLink {...servicesProps} onNavigate={onNavigate}>Services</NavLink>
+      <NavLink href="/about" onNavigate={onNavigate}>About</NavLink>
+      <NavLink href="/contact" onNavigate={onNavigate}>Contact</NavLink>
+    </>
+  );
 
   return (
     <nav
@@ -35,43 +55,24 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <a
-        href="#"
-        onClick={(e) => { e.preventDefault(); scrollToSection("s-hero"); }}
+      <Link
+        href="/"
         style={{
           fontFamily: "var(--fj)", fontWeight: 800, fontSize: 20,
           color: "var(--white)", textDecoration: "none", letterSpacing: "-0.02em",
         }}
       >
         Xcl<em style={{ color: "var(--orange)", fontStyle: "normal" }}>a</em>tor
-      </a>
+      </Link>
 
       {/* Desktop Links */}
       <ul className="nav-desktop" style={{ display: "flex", gap: 36, listStyle: "none" }}>
-        {NAV_ITEMS.map((item) => (
-          <li key={item.sectionId}>
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); scrollToSection(item.sectionId); }}
-              style={{
-                fontFamily: "var(--nu)", fontSize: 14, fontWeight: 600,
-                color: "rgba(255,255,255,0.55)", textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {links()}
       </ul>
 
       {/* Desktop CTA Button */}
-      <a
-        href="https://wa.me/923019172774"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href="/contact"
         className="nav-desktop"
         style={{
           background: "var(--orange)", color: "var(--white)",
@@ -91,7 +92,7 @@ export default function Navbar() {
         }}
       >
         Start a Project
-      </a>
+      </Link>
 
       {/* Mobile Hamburger */}
       <button
@@ -126,26 +127,14 @@ export default function Navbar() {
               background: "none", border: "none", color: "var(--white)",
               fontSize: 24, cursor: "pointer",
             }}
+            aria-label="Close menu"
           >
             ×
           </button>
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.sectionId}
-              href="#"
-              onClick={(e) => { e.preventDefault(); scrollToSection(item.sectionId); setMenuOpen(false); }}
-              style={{
-                fontFamily: "var(--nu)", fontSize: 18, fontWeight: 700,
-                color: "rgba(255,255,255,0.8)", textDecoration: "none",
-              }}
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="https://wa.me/923019172774"
-            target="_blank"
-            rel="noopener noreferrer"
+          {links(() => setMenuOpen(false))}
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
             style={{
               background: "var(--orange)", color: "var(--white)",
               fontFamily: "var(--nu)", fontSize: 14, fontWeight: 700,
@@ -155,9 +144,40 @@ export default function Navbar() {
             }}
           >
             Start a Project
-          </a>
+          </Link>
         </div>
       )}
     </nav>
+  );
+}
+
+function NavLink({
+  href,
+  children,
+  onClick,
+  onNavigate,
+}: {
+  href: string;
+  children: React.ReactNode;
+  onClick?: (e: React.MouseEvent) => void;
+  onNavigate?: () => void;
+}) {
+  const base: React.CSSProperties = {
+    fontFamily: "var(--nu)", fontSize: 14, fontWeight: 600,
+    color: "rgba(255,255,255,0.55)", textDecoration: "none",
+    transition: "color 0.2s",
+  };
+  return (
+    <li style={{ listStyle: "none" }}>
+      <Link
+        href={href}
+        onClick={(e) => { onClick?.(e); onNavigate?.(); }}
+        style={base}
+        onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+        onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
+      >
+        {children}
+      </Link>
+    </li>
   );
 }

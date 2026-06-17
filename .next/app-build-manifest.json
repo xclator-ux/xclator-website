@@ -1,15 +1,91 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/app/_not-found/page-b62982a1b0a6c401.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/css/a8b37a680be8056b.css",
+      "static/chunks/app/layout-97e02a6808556323.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/page-072fc979d863b34d.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/contact/page-013ebdbe6de7bd19.js"
+    ],
+    "/legal/privacy/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/legal/privacy/page-652e9f9691f719f0.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/about/page-9bb68faa02b84232.js"
+    ],
+    "/legal/refund/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/legal/refund/page-509412be48b493aa.js"
+    ],
+    "/legal/terms/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/legal/terms/page-3862ae17c494bc6e.js"
+    ],
+    "/products/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/products/page-7a46fecf8f2e91a4.js"
+    ],
+    "/products/[slug]/page": [
+      "static/chunks/webpack-eaf71682925e89c1.js",
+      "static/chunks/fd9d1056-87da80e0c187477b.js",
+      "static/chunks/117-baab43fc83142998.js",
+      "static/chunks/main-app-ad15b232577e9ac8.js",
+      "static/chunks/448-8d79e57ff456c455.js",
+      "static/chunks/422-d028092642b78d05.js",
+      "static/chunks/app/products/[slug]/page-b9c2b0ff3eb1f7d2.js"
     ]
   }
 }

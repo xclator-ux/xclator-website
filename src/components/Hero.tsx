@@ -1,10 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-
-function scrollToSection(id: string) {
-  const el = document.getElementById(id);
-  el?.scrollIntoView({ behavior: "smooth" });
-}
+import Link from "next/link";
 
 export default function Hero() {
   const blob1 = useRef<HTMLDivElement>(null);
@@ -189,9 +185,8 @@ export default function Hero() {
             animation: "fadeUp 0.8s 0.78s forwards",
           }}
         >
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); scrollToSection("s-products"); }}
+          <Link
+            href="/products"
             style={{
               background: "var(--orange)", color: "var(--white)",
               fontFamily: "var(--nu)", fontWeight: 700, fontSize: 16,
@@ -213,11 +208,9 @@ export default function Hero() {
             }}
           >
             Explore Products →
-          </a>
-          <a
-            href="https://wa.me/923019172774"
-            target="_blank"
-            rel="noopener noreferrer"
+          </Link>
+          <Link
+            href="/contact"
             style={{
               background: "transparent", color: "var(--white)",
               fontFamily: "var(--nu)", fontWeight: 600, fontSize: 16,
@@ -237,7 +230,7 @@ export default function Hero() {
             }}
           >
             Work With Us
-          </a>
+          </Link>
         </div>
 
         {/* Social proof */}
