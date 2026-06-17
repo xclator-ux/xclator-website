@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { LegalPage, H2, P, UL, LI } from "@/components/LegalPage";
 import { COMPANY } from "@/lib/company";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Refund Policy — Xclator AI LLC",
+export const metadata = pageMeta({
+  title: "Refund Policy",
   description:
     "Xclator AI LLC's 7-day conditional refund policy for lifetime-access digital software products.",
-};
+  path: "/legal/refund",
+});
 
 export default function RefundPage() {
   return (

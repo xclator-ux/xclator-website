@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { LegalPage, H2, P, UL, LI } from "@/components/LegalPage";
 import { COMPANY } from "@/lib/company";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions — Xclator AI LLC",
+export const metadata = pageMeta({
+  title: "Terms & Conditions",
   description:
     "The terms governing your purchase and use of Xclator AI LLC's lifetime-access digital software products.",
-};
+  path: "/legal/terms",
+});
 
 export default function TermsPage() {
   return (

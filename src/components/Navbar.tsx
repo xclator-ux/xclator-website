@@ -30,12 +30,12 @@ export default function Navbar({ solid = false }: { solid?: boolean }) {
     ? { href: "/#services", onClick: (e: React.MouseEvent) => { e.preventDefault(); scrollToServices(); } }
     : { href: "/#services" };
 
-  const links = (onNavigate?: () => void) => (
+  const links = (onNavigate?: () => void, drawer = false) => (
     <>
-      <NavLink href="/products" onNavigate={onNavigate}>Products</NavLink>
-      <NavLink {...servicesProps} onNavigate={onNavigate}>Services</NavLink>
-      <NavLink href="/about" onNavigate={onNavigate}>About</NavLink>
-      <NavLink href="/contact" onNavigate={onNavigate}>Contact</NavLink>
+      <NavLink href="/products" onNavigate={onNavigate} drawer={drawer}>Products</NavLink>
+      <NavLink {...servicesProps} onNavigate={onNavigate} drawer={drawer}>Services</NavLink>
+      <NavLink href="/about" onNavigate={onNavigate} drawer={drawer}>About</NavLink>
+      <NavLink href="/contact" onNavigate={onNavigate} drawer={drawer}>Contact</NavLink>
     </>
   );
 
@@ -131,7 +131,7 @@ export default function Navbar({ solid = false }: { solid?: boolean }) {
           >
             ×
           </button>
-          {links(() => setMenuOpen(false))}
+          {links(() => setMenuOpen(false), true)}
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
@@ -156,17 +156,29 @@ function NavLink({
   children,
   onClick,
   onNavigate,
+  drawer = false,
 }: {
   href: string;
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent) => void;
   onNavigate?: () => void;
+  drawer?: boolean;
 }) {
-  const base: React.CSSProperties = {
-    fontFamily: "var(--nu)", fontSize: 14, fontWeight: 600,
-    color: "rgba(255,255,255,0.55)", textDecoration: "none",
-    transition: "color 0.2s",
-  };
+  // In the mobile drawer, links are larger and have a comfortable tap target.
+  const idle = drawer ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.55)";
+  const base: React.CSSProperties = drawer
+    ? {
+        display: "block",
+        fontFamily: "var(--nu)", fontSize: 18, fontWeight: 700,
+        color: idle, textDecoration: "none",
+        padding: "8px 0", minHeight: 44, lineHeight: "28px",
+        transition: "color 0.2s",
+      }
+    : {
+        fontFamily: "var(--nu)", fontSize: 14, fontWeight: 600,
+        color: idle, textDecoration: "none",
+        transition: "color 0.2s",
+      };
   return (
     <li style={{ listStyle: "none" }}>
       <Link
@@ -174,7 +186,7 @@ function NavLink({
         onClick={(e) => { onClick?.(e); onNavigate?.(); }}
         style={base}
         onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
-        onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
+        onMouseLeave={(e) => (e.currentTarget.style.color = idle)}
       >
         {children}
       </Link>

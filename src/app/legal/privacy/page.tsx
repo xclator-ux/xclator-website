@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { LegalPage, H2, P, UL, LI } from "@/components/LegalPage";
 import { COMPANY } from "@/lib/company";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — Xclator AI LLC",
+export const metadata = pageMeta({
+  title: "Privacy Policy",
   description:
     "How Xclator AI LLC collects, uses, and protects your data across its websites and software products.",
-};
+  path: "/legal/privacy",
+});
 
 export default function PrivacyPage() {
   return (

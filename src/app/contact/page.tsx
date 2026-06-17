@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import SubPageShell from "@/components/SubPageShell";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import { COMPANY } from "@/lib/company";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact Xclator AI LLC",
+export const metadata = pageMeta({
+  title: "Contact",
   description:
     "Get in touch with Xclator AI LLC — for product questions, custom AI builds, or partnerships. Email contact@xclator.com or send us a message.",
-};
+  path: "/contact",
+  fullTitle: "Contact Xclator AI LLC",
+});
 
 export default function ContactPage() {
   return (

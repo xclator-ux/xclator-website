@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import SubPageShell from "@/components/SubPageShell";
 import PageHeader from "@/components/PageHeader";
 import { STATS } from "@/lib/constants";
 import { COMPANY } from "@/lib/company";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Xclator AI LLC — AI Product Studio",
+export const metadata = pageMeta({
+  title: "About",
   description:
     "Xclator AI LLC is a US-registered AI product studio. A lean, senior 6-person team building and shipping AI-powered SaaS and custom software — fast.",
-};
+  path: "/about",
+  fullTitle: "About Xclator AI LLC — AI Product Studio",
+});
 
 const STORY = [
   {

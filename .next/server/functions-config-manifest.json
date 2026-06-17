@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/api/contact":{},"/contact":{},"/legal/privacy":{},"/legal/refund":{},"/products":{},"/legal/terms":{},"/products/[slug]":{},"/about":{}}}
+{"version":1,"functions":{"/api/contact":{},"/contact":{},"/legal/privacy":{},"/about":{},"/legal/refund":{},"/legal/terms":{},"/products":{},"/products/[slug]":{}}}

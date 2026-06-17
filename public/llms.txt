@@ -1,0 +1,31 @@
+# Xclator AI LLC
+
+> Xclator AI LLC is a US-registered (Wyoming) AI product studio run by a lean, senior six-person team. We build and ship AI-powered SaaS products, and we build custom AI systems and software for clients. Our products are sold as one-time purchases with lifetime access.
+
+- Website: https://www.xclator.com
+- Contact: contact@xclator.com · +1 917 920 8834
+- Address: 30 N Gould St, Ste 65282, Sheridan, WY 82801, USA
+
+## Products
+
+- [LeadHawk](https://www.xclator.com/products/leadhawk): AI-powered lead generation built for web designers & agencies. Finds businesses needing a website, audits weak sites, and delivers pitch-ready leads. Price: $1,200 lifetime. Live demo: https://leadhawk.xclator.com
+- [ScribeFlow](https://www.xclator.com/products/scribeflow): AI transcription tool — paste any video link, get downloadable audio plus a 99% accurate, multilingual transcript exportable in any format. Price: $1,999 lifetime. Live demo: https://scribeflow.xclator.com
+- [MapMotion](https://www.xclator.com/products/mapmotion): A 2D map animation tool for cinematic map sequences — flight routes, military movements, journeys — in minutes. Price: $699 lifetime. Live demo: https://mapmotion.xclator.com
+- [Mobile ERP](https://www.xclator.com/products/mobile-erp): A lightweight, fully customizable ERP for mobile shops and small businesses — inventory, sales, and operations in one place. Price: $499 lifetime. Live demo: https://mobile.xclator.com
+
+## Key Pages
+
+- [Products](https://www.xclator.com/products): All Xclator products with pricing and demos.
+- [About](https://www.xclator.com/about): Who we are — a US-registered AI product studio and six-person team.
+- [Contact](https://www.xclator.com/contact): Get in touch for products, custom AI builds, or partnerships.
+
+## Notes
+
+- Payments (Buy Now) are launching soon; product demos are live now via the links above.
+- Custom AI systems, internal tools, and bespoke software are available on request via the Contact page.
+
+## Legal
+
+- [Privacy Policy](https://www.xclator.com/legal/privacy)
+- [Refund Policy](https://www.xclator.com/legal/refund): 7-day conditional refunds on lifetime-access digital products.
+- [Terms & Conditions](https://www.xclator.com/legal/terms)

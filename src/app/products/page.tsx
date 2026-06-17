@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import SubPageShell from "@/components/SubPageShell";
 import PageHeader from "@/components/PageHeader";
 import ProductCard from "@/components/ProductCard";
 import { PRODUCTS } from "@/lib/products";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Products — Xclator AI LLC | LeadHawk, ScribeFlow, MapMotion, Mobile ERP",
+export const metadata = pageMeta({
+  title: "Products",
   description:
-    "Explore Xclator's AI-powered software products — LeadHawk, ScribeFlow, MapMotion, and Mobile ERP. Lifetime access, built and shipped by Xclator AI LLC.",
-};
+    "Explore Xclator AI LLC's products — LeadHawk (AI lead generation), ScribeFlow (AI transcription), MapMotion (2D map animation), and Mobile ERP. Lifetime access, one-time price.",
+  path: "/products",
+  fullTitle: "Products — Xclator AI LLC | LeadHawk, ScribeFlow, MapMotion, Mobile ERP",
+});
 
 export default function ProductsPage() {
   return (

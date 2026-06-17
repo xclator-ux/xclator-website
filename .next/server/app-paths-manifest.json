@@ -1,12 +1,11 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
   "/contact/page": "app/contact/page.js",
   "/legal/privacy/page": "app/legal/privacy/page.js",
-  "/api/contact/route": "app/api/contact/route.js",
-  "/about/page": "app/about/page.js",
   "/legal/refund/page": "app/legal/refund/page.js",
   "/legal/terms/page": "app/legal/terms/page.js",
+  "/page": "app/page.js",
+  "/icon.svg/route": "app/icon.svg/route.js",
+  "/about/page": "app/about/page.js",
   "/products/page": "app/products/page.js",
   "/products/[slug]/page": "app/products/[slug]/page.js"
 }

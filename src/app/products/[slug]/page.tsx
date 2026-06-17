@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SubPageShell from "@/components/SubPageShell";
+import JsonLd from "@/components/JsonLd";
 import { PRODUCTS, getProduct } from "@/lib/products";
+import { SITE_URL, pageMeta } from "@/lib/seo";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -10,11 +12,12 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const product = getProduct(params.slug);
-  if (!product) return { title: "Product — Xclator AI LLC" };
-  return {
-    title: `${product.name} — ${product.oneLiner} | Xclator AI LLC`,
+  if (!product) return { title: "Product" };
+  return pageMeta({
+    title: `${product.name} — ${product.oneLiner}`,
     description: product.shortDesc,
-  };
+    path: `/products/${product.slug}`,
+  });
 }
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
@@ -22,9 +25,26 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   if (!product) notFound();
 
   const accent = product.accent;
+  const url = `${SITE_URL}/products/${product.slug}`;
+  const productLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDesc,
+    brand: { "@type": "Brand", name: "Xclator AI LLC" },
+    url,
+    offers: {
+      "@type": "Offer",
+      price: product.price.replace(/[^0-9.]/g, ""),
+      priceCurrency: "USD",
+      availability: "https://schema.org/PreOrder",
+      url,
+    },
+  };
 
   return (
     <SubPageShell>
+      <JsonLd data={productLd} />
       {/* Hero */}
       <header
         style={{
